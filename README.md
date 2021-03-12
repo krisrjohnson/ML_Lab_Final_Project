@@ -3,6 +3,8 @@
 ---
 # Introduction
 
+Final project for Machine Learning Lab course for University of San Francisco's Masters in Data Science Program.
+
 ---
 ## Project Goal
 

@@ -13,9 +13,7 @@ Can we accurately classify Bitcoin transactions into either Ransomware or non-ra
 ---
 ## Data and EDA
 
-Dataset from UCI Bitcoin Heist Ransomware. Brief Description from UCI:
-
-	Entire Bitcoin transaction graph from 2009 January to 2018 December. Using a time interval of 24 hours, daily transactions on the network to form the Bitcoin graph. Filtered out network edges that transfer less than B0.3, as ransom amounts are rarely below this threshold.
+Dataset from UCI Bitcoin Heist Ransomware. Brief Description from UCI: "Entire Bitcoin transaction graph from 2009 January to 2018 December. Using a time interval of 24 hours, daily transactions on the network to form the Bitcoin graph. Filtered out network edges that transfer less than B0.3, as ransom amounts are rarely below this threshold."
 
 - Large (for running locally) original dataset, of 2.9 million recrds
 - Data extremely imbalanced

@@ -38,19 +38,19 @@ I had to drop data to fit the assignment's size constraint. Only dropped majorit
 
 ## Algorithms
 
-Searching between good old Logistic Regression and Random Forest Classifier. Obvoiusly I expecte RandomForest to handily beat logistic regression, and that is ultimately the case, but it's a good exercise to see the difference between the two.
+Searching between Logistic Regression and Random Forest Classifiers, with RandomForest ultimately performing better.
 
-For both, using imblearn's sampling classes to help with the data imbalance. For logistic, using SMOTE to create synthetic datapoints from the minority ransomware class to upsample it's size to be even with or greater than the normal transaction class. For RandomForests, which take significantly longer to train as they're more complex than an analytical solution, using imblearn's `RandomUnderSampler()` to bring the majority class down in line with the minority ransomWare class.
+For both, I'm using [imblearn](https://imbalanced-learn.org/stable/)'s sampling classes to help with the data imbalance. For logistic, using SMOTE to create synthetic datapoints from the minority ransomware class to upsample it's size to be even with, or greater than, the normal transaction class. For RandomForests, which take significantly longer to train as they're more complex than an analytical solution, using imblearn's `RandomUnderSampler()` to bring the majority class down in line with the minority ransomWare class.
 
-For logistic, I further used StandardScaler to normalize the data, which is especially good as a lot of the columns have heavy, heavy right tails so it'll help squash those records closer to the rest, inhibiting the strength of these outliers. I also used PCA to further compress the data and to better be able to train in the direction of the most signal capture.  
+For logistic, I further used sklearn's `StandardScaler()` to normalize the data, which is especially good as a lot of the columns have heavy, heavy right tails so it'll help squash those records closer to the rest to inhibit the strength of these outliers. I also used PCA to further compress data dimensionalty and better train in the direction of the most signal capture.  
 
-For logistic itself, outside of switching to 'saga' solver, which is better for larger datasets, I mostly experiemented with the `C` hyperparameter, where 1/C represents regularization strength. So a larger `C` means less regularization. 
+For logistic itself, outside of switching to `saga` solver, which is better for larger datasets, I mostly experiemented with the `C` hyperparameter, where 1/C represents regularization strength. So a larger `C` means less regularization. 
 
-For RandomForests, we iterated over number of trees to fit as well as max depth.
+For RandomForests, I iterated over `n_estimators`, aka number of trees, as well as max depth.
 
 ## Metrics
 
-We're primarily interested in finding the needle in the haystack and making sure we don't miss the needle more than being worried about pulling in a bunch of hay as well, so recall was the obvious choice of ultimate evaluation metric. However, fitting to recall alone leads to just pulling the entire haystack, so we trained on F-score weighted toward recall with a `beta=2`. 
+We're primarily interested in finding the needle in the haystack. So we want to make sure we don't miss the needle more than we're worried about pulling in a bunch of hay as well, so recall was the obvious choice of ultimate evaluation metric. However, fitting to recall alone leads to just pulling the entire haystack, so I trained on F-score weighted toward recall with a `beta=2`. 
 
 ## Results
 
